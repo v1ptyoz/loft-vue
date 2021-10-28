@@ -1,0 +1,21 @@
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+.nav__btn {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+.nav__btn--user {
+    width: 37px;
+    height: 37px;
+}
