@@ -1,9 +1,10 @@
 header.header
     div.container
-        nav.header__topline
-            a(href="/")
-                Logo
-            x-nav(:current-user="currentUser")
-        div.stories
-            Stories(:user-stories="userStories")
-
+        slot
+            nav.header__topline
+                a(href="/")
+                    Logo
+                x-nav(:current-user="currentUser")
+        slot
+            div.stories
+                Stories(:user-stories="userStories")

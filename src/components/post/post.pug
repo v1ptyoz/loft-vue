@@ -1,19 +1,14 @@
 div.post
-    author
-    div.post__content
-        h3.post__header Vue.js
-        p.post__text JavaScript framework for building interactive web applications
-        actions
+    author(:name="postAuthor", :src="postAuthorImage")
+    slot
+        div.post__content
+            h3.post__header {{postTitle}}
+            p.post__text {{postContent}}
+            actions(:stars="stars", :forks="forks")
     div.post__issues
         toggler(label="Hide issues")
         ul.post__comments
-            li.post__comment.comment
-                div.comment__author adfsadf
-                div.comment__text ppoipoeiqwrpoqweirpowq
-            li.post__comment.comment
-                div.comment__author adfsadf
-                div.comment__text ppoipoeiqwrpoqweirpowq
-            li.post__comment.comment
-                div.comment__author adfsadf
-                div.comment__text ppoipoeiqwrpoqweirpowq
-    span.post__date 15 may
+            li.comment(v-for="comment in postComments")
+                div.comment__author {{comment.author}}
+                div.comment__text {{comment.text}}
+    span.post__date {{postDate}}

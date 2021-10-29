@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "author"
+  name: "author",
+  props: ["name", "src"]
 }
 </script>
 

@@ -13,6 +13,17 @@ export default {
     actions,
     toggler,
   },
+  props: [
+    "postTitle",
+    "postContent",
+    "postAuthor",
+    "postAuthorImage",
+    "stars",
+    "forks",
+    "postComments",
+    "postDate",
+  ],
+  emits: ["toggled"],
 };
 </script>
 

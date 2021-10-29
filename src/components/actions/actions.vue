@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "actions"
+  name: "actions",
+  props: ["stars", "forks"]
 }
 </script>
 
