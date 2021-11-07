@@ -1,0 +1,19 @@
+.nav__list {
+    list-style: none;
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+}
+.nav__btn {
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    width: 37px;
+    height: 37px;
+    svg {
+        width: 24px;
+        height: 24px;
+        color: #262626;
+    }
+}

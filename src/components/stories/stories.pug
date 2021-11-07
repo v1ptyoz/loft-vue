@@ -1,4 +1,3 @@
-ul.stories__list
-    storie(v-for="storie in userStories" :avatar="storie.avatar" :userName="storie.userName")
-
-
+ul.stories
+    button(v-for="story in userStories" key="story.user.name" aria-label="Посмотреть историю" title="Посмотреть историю")
+        user(:name="story.user.name" :src="story.user.src" :in-stories="true" :active="isActive" :online="isOnline")

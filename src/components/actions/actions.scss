@@ -1,0 +1,17 @@
+.actions {
+  display: flex;
+  align-items: center;
+    .action {
+      border-radius: 0;
+      border-right: 1px solid rgba(27, 31, 35, 0.4);
+      border-left: 1px solid rgba(27, 31, 35, 0.4);
+    }
+    .action:first-child {
+      border-radius: 6px 0 0 6px;
+      border-left: 1px solid rgba(27, 31, 35, 0.15);
+    }
+    .action:last-child {
+      border-radius: 0 6px 6px 0;
+      border-right: 1px solid rgba(27, 31, 35, 0.15);
+    }
+}

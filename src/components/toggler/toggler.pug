@@ -1,1 +1,3 @@
-button.toggler(:class="{'toggler--opened': this.opened}" @click="toggle") {{label}}
+button.toggler(:class="{'toggler--opened': opened}" @click="toggle")
+    span {{opened ? "Hide" : "Show"}} issues
+    icons(name="arrow")

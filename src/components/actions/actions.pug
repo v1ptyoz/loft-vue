@@ -1,11 +1,2 @@
-div.actions
-    div.action.star
-        button.actions__btn
-            img(src="../../assets/star.svg")
-            | Star
-        div.actions__info {{stars}}
-    div.action.fork
-        button.actions__btn
-            img(src="../../assets/fork.svg")
-            | Fork
-        span.actions__info {{forks}}
+.actions
+    action(v-for="button in buttons" :type="button.type", :label="button.label", :value="button.value")

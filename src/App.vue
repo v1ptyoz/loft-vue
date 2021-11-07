@@ -1,5 +1,5 @@
-<template lang="pug">
-Feed
+<template>
+<Feed />
 </template>
 
 <script>
@@ -12,4 +12,4 @@ export default {
   },
 };
 </script>
-<style src="./style.css"></style>
+<style lang="scss" src="./style.scss"></style>

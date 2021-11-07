@@ -1,37 +1,45 @@
 <template src="./x-header.pug"></template>
 
 <script>
-import Logo from "@/components/logo/logo";
 import xNav from "@/components/x-nav/x-nav";
 import Stories from "@/components/stories/stories";
-import user1 from "@/assets/user1.png";
-import user2 from "@/assets/user2.png";
+import icons from "@/components/icons/icons";
 export default {
   name: "Header",
   components: {
-    Logo,
     xNav,
     Stories,
+    icons,
   },
   data() {
     return {
       userStories: [
         {
-          userName: "user1",
-          avatar: user1,
+          user: {
+            name: "user1",
+            src: "https://picsum.photos/100",
+          },
         },
         {
-          userName: "user2",
-          avatar: user2,
+          user: {
+            name: "user2",
+            src: "https://picsum.photos/100",
+          },
+        },
+        {
+          user: {
+            name: "user3",
+            src: "https://picsum.photos/100",
+          },
         },
       ],
       currentUser: {
-        userName: "user1",
-        avatar: user1,
+        name: "user1",
+        src: "https://picsum.photos/100",
       },
     };
   },
 };
 </script>
 
-<style src="./x-header.css" scoped></style>
+<style lang="scss" src="./x-header.scss" scoped></style>

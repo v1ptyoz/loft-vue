@@ -1,0 +1,104 @@
+.user {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+}
+.user__img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.user__text {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.1px;
+    color: #262626;
+}
+
+.inNav {
+    .user__img {
+        width: 37px;
+        height: 37px;
+        border: none;
+    }
+    .user__text {
+        display: none;
+    }
+}
+
+.storie {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .user__img {
+        width: 92px;
+        height: 92px;
+        border: 2px solid transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+    }
+    .user__text {
+        font-weight: normal;
+        font-size: 10px;
+    }
+}
+.storie--active {
+    .user__img {
+        border: 2px solid #A6328D;
+        overflow: visible;
+    }
+}
+
+.storie--online {
+    .user__img {
+        border: 2px solid #A6328D;
+        position: relative;
+        overflow: visible;
+        &:after {
+            content: 'LIVE';
+            position: absolute;
+            bottom: -6px;
+            left: 26px;
+            color: #FFFFFF;
+            font-size: 7px;
+            line-height: 20px;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            width: 36px;
+            height: 20px;
+            background: linear-gradient(110.09deg, #C7059A -6.49%, #DD0E44 118.9%);
+            border: 1px solid #FFFFFF;
+            border-radius: 1px;
+        }
+    }
+}
+
+.inStoriesPost {
+    .user__img {
+        width: 32px;
+        height: 32px;
+        border: none;
+    }
+    .user__text {
+        font-size: 14px;
+    }
+}
+

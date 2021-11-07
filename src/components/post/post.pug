@@ -1,14 +1,14 @@
 div.post
-    author(:name="postAuthor", :src="postAuthorImage")
+    user(:name="username", :src="avatar")
     slot
         div.post__content
             h3.post__header {{postTitle}}
             p.post__text {{postContent}}
-            actions(:stars="stars", :forks="forks")
+            actions(:buttons="buttons")
     div.post__issues
-        toggler(label="Hide issues")
-        ul.post__comments
+        toggler(label="Hide issues" @onToggle="show")
+        ul.post__comments(v-if="shown")
             li.comment(v-for="comment in postComments")
                 div.comment__author {{comment.author}}
                 div.comment__text {{comment.text}}
-    span.post__date {{postDate}}
+    span.post__date {{this.date}}

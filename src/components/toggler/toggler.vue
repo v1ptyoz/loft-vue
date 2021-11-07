@@ -1,23 +1,22 @@
 <template src="./toggler.pug"></template>
 
 <script>
+import icons from "../icons/icons";
 export default {
   name: "toggler",
-  props: {
-    label: String,
-  },
+  components: { icons },
   data() {
     return {
-      opened: true,
+      opened: false,
     };
   },
   methods: {
     toggle() {
       this.opened = !this.opened;
-      this.$emit("toggled", this.opened);
+      this.$emit("onToggle", this.opened);
     },
   },
 };
 </script>
 
-<style src="./toggler.css" scoped></style>
+<style lang="scss" src="./toggler.scss" scoped></style>

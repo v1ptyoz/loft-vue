@@ -3,30 +3,73 @@
 </template>
 
 <script>
-import author from "@/components/author/author";
+import user from "@/components/user/user";
 import actions from "@/components/actions/actions";
 import toggler from "@/components/toggler/toggler";
 export default {
   name: "Post",
   components: {
-    author,
+    user,
     actions,
     toggler,
   },
   props: [
+    "username",
+    "avatar",
     "postTitle",
     "postContent",
-    "postAuthor",
-    "postAuthorImage",
-    "stars",
-    "forks",
     "postComments",
     "postDate",
+    "forks",
+    "stars",
   ],
-  emits: ["toggled"],
+  computed: {
+    buttons() {
+      return [
+        {
+          type: "star",
+          label: "Star",
+          value: this.stars,
+        },
+        {
+          type: "fork",
+          label: "Fork",
+          value: this.forks,
+        },
+      ];
+    },
+    date() {
+      const months = [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
+      ];
+      const d = new Date(this.postDate);
+      return [d.getDate(), months[d.getMonth()]].join(" ");
+    },
+  },
+  data() {
+    return {
+      shown: false,
+    };
+  },
+  methods: {
+    show(toggled) {
+      this.shown = toggled;
+    },
+  },
 };
 </script>
 
-<style src="./post.css" scoped>
+<style lang="scss" src="./post.scss" scoped>
 
 </style>

@@ -1,10 +1,10 @@
 ul.nav__list(aria-label="Меню сайта")
     li.nav__item
         button.nav__btn(aria-label="Главная", title="Главная")
-            img(src="../../assets/home.svg")
+            icons(name="home")
     li.nav__item
         button.nav__btn.nav__btn--user(aria-label="Профиль" title="Профиль")
-            img(:src="currentUser.avatar" width="37", height="37")
+            user(:in-nav="true" :src="currentUser.src", :name="currentUser.name" )
     li.nav__item
         button.nav__btn(aria-label="Выход" title="Выход")
-            img(src="../../assets/exit.svg")
+            icons(name="exit")
