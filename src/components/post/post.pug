@@ -7,8 +7,5 @@ div.post
             actions(:buttons="buttons")
     div.post__issues
         toggler(label="Hide issues" @onToggle="show")
-        ul.post__comments(v-if="shown")
-            li.comment(v-for="comment in postComments")
-                div.comment__author {{comment.author}}
-                div.comment__text {{comment.text}}
+        issues(v-if="shown" :postIssuesCount="postIssuesCount" key="post" :url="url")
     span.post__date {{this.date}}

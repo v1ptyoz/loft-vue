@@ -1,5 +1,9 @@
 import axios from "axios";
 
+export const getIssues = (url) => {
+  return axios(url);
+};
+
 export const getPosts = () => {
   const week = 7 * 24 * 60 * 60 * 1000;
   const weekAgo = new Date(Date.now() - week);

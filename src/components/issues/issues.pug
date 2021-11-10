@@ -1,0 +1,4 @@
+ul.issues
+    li.issue(v-for="issue in issues")
+        div.issue__author {{issue.user.login}}
+        div.issue {{issue.title}}

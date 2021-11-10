@@ -1,0 +1,17 @@
+.issues {
+  margin: 10px 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.issue {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 22px;
+}
+.issue__author {
+  font-weight: bold;
+}

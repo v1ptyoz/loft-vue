@@ -6,19 +6,22 @@
 import user from "@/components/user/user";
 import actions from "@/components/actions/actions";
 import toggler from "@/components/toggler/toggler";
+import issues from "@/components/issues/issues";
 export default {
   name: "Post",
   components: {
     user,
     actions,
     toggler,
+    issues,
   },
   props: [
     "username",
     "avatar",
     "postTitle",
     "postContent",
-    "postComments",
+    "postIssuesCount",
+    "url",
     "postDate",
     "forks",
     "stars",

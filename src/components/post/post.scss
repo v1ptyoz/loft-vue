@@ -27,23 +27,6 @@
 .post .actions {
     margin-top: 32px;
 }
-.post__comments {
-    margin: 10px 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.comment {
-    display: flex;
-    justify-content: flex-start;
-    gap: 8px;
-    font-size: 14px;
-    line-height: 22px;
-}
-.comment__author {
-    font-weight: bold;
-}
 
 .post__date {
     letter-spacing: 0.1em;
