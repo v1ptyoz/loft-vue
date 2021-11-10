@@ -20,7 +20,6 @@ export default {
     "avatar",
     "postTitle",
     "postContent",
-    "postIssuesCount",
     "url",
     "postDate",
     "forks",

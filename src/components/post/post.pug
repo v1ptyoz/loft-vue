@@ -7,5 +7,5 @@ div.post
             actions(:buttons="buttons")
     div.post__issues
         toggler(label="Hide issues" @onToggle="show")
-        issues(v-if="shown" :postIssuesCount="postIssuesCount" key="post" :url="url")
+        issues(v-if="shown" key="post" :url="url")
     span.post__date {{this.date}}

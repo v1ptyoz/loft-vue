@@ -7,7 +7,7 @@ import { getIssues } from "@/services/networkService";
 
 export default {
   name: "issue",
-  props: ["url", "postIssuesCount"],
+  props: ["url"],
   data() {
     return {
       issues: {},
