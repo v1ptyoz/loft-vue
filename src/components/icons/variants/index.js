@@ -4,3 +4,6 @@ export { default as fork } from "./fork";
 export { default as home } from "./home";
 export { default as logo } from "./logo";
 export { default as star } from "./star";
+export { default as prev } from "./prev";
+export { default as next } from "./next";
+export { default as close } from "./close";

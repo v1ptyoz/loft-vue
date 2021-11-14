@@ -7,12 +7,21 @@ export default {
 
 export const TwoIssues = () => ({
   components: { issues },
-  template: `<issues :post-issues='[{
-    author: "Username1",
-    text: "lorem ipsum dolor amen",
+  methods: {
+    created() {
+      return "";
+    },
+  },
+  template: `<issues :issues='[{
+    user: {
+      login: "Username1"
+    },
+    title: "lorem ipsum dolor amen",
   },
   {
-    author: "Username2",
-    text: "lorem ipsum dolor amen bal troq",
+    user: {
+      login: "Username2"
+    },
+    title: "lorem ipsum dolor amen tut",
   },]' />`,
 });

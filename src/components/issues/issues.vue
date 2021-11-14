@@ -3,23 +3,17 @@
 </template>
 
 <script>
-import { getIssues } from "@/services/networkService";
 
 export default {
   name: "issue",
   props: ["url"],
-  data() {
-    return {
-      issues: {},
-    };
+  computed: {
+    issues() {
+      return this.$store.getters.getIssue(this.url + "/issues");
+    },
   },
   async created() {
-    try {
-      const { data } = await getIssues(this.url + "/issues");
-      this.issues = data;
-    } catch (e) {
-      throw new Error(e);
-    }
+    // this.$store.dispatch("fetchIssues", this.url + "/issues");
   },
 };
 </script>

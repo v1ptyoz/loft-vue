@@ -3,17 +3,19 @@
 <script>
 export default {
   name: "timeline",
-  data() {
-    return {
-      val: 80,
-      max: 100,
-    };
-  },
-  computed: {
-    style() {
-      return `right: ${this.val}%`;
+  props: ["active"],
+  emits: ["onFinish"],
+  methods: {
+    emitOnFinish() {
+      this.$emit("onFinish");
     },
   },
+  mounted() {
+    this.$refs.indicator.addEventListener("transitionend", this.emitOnFinish);
+  },
+  beforeUnmount() {
+    this.$refs.indicator.removeEventListener("transitionend", this.emitOnFinish);
+  }
 };
 </script>
 

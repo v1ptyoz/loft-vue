@@ -34,3 +34,18 @@ export const logo = () => ({
     components: { icons },
     template: '<icons name="logo" style="width: 50px"/>',
 });
+
+export const next = () => ({
+    components: { icons },
+    template: '<icons name="next" style="width: 50px"/>',
+});
+
+export const prev = () => ({
+    components: { icons },
+    template: '<icons name="prev" style="width: 50px"/>',
+});
+
+export const close = () => ({
+    components: { icons },
+    template: '<icons name="close" style="width: 50px"/>',
+});

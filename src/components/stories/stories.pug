@@ -1,3 +1,4 @@
-ul.stories
-    button(v-for="story in userStories" key="story.user.name" aria-label="Посмотреть историю" title="Посмотреть историю")
-        user(:name="story.user.name" :src="story.user.src" :in-stories="true" :active="isActive" :online="isOnline")
+ul.stories__list
+    li.stories__item(v-for="(story, ndx) in trendings" key="story.id" :id="story.id")
+        button(aria-label="Посмотреть историю" title="Посмотреть историю" @click="$emit('storyClick', ndx)")
+            user(:id="story.id" :name="story.name" :src="story.owner.avatar_url" :in-stories="true" :active="isActive")

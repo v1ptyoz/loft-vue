@@ -2,21 +2,22 @@
 
 <script>
 import user from "../user/user";
+import { mapState } from "vuex";
+
 export default {
   name: "stories",
-  props: {
-    userStories: {
-      type: Array,
-      required: true,
-    },
-    isActive: {
-      type: Boolean,
-      required: false,
-    },
-    isOnline: {
-      type: Boolean,
-      required: false,
-    }
+  data() {
+    return {
+      inStories: true,
+      isActive: true,
+    };
+  },
+  emits: ["storyClick"],
+  props: ["id"],
+  computed: {
+    ...mapState({
+      trendings: (state) => state.repos,
+    }),
   },
   components: {
     user,

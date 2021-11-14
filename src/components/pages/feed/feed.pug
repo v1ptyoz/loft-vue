@@ -1,4 +1,9 @@
 x-header
 main.main
+    slot
+        div.stories
+            div.container
+                Stories(@storyClick="storyClick")
     div.main__container
-        Post(v-for="post in posts" :post-title="post.full_name" :post-content="post.description" :username="post.name" :avatar="post.owner.avatar_url" :stars="post.stargazers_count" :forks="post.forks_count" :post-date="post.created_at" :url="post.url")
+        slot
+            Post(v-for="post in posts" :post-title="post.full_name" :post-content="post.description" :username="post.name" :avatar="post.owner.avatar_url" :stars="post.stargazers_count" :forks="post.forks_count" :post-date="post.created_at" :url="post.url")

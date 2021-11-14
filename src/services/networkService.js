@@ -1,7 +1,10 @@
 import axios from "axios";
 
+
+const getData = axios.create({});
+
 export const getIssues = (url) => {
-  return axios(url);
+  return getData(url);
 };
 
 export const getPosts = () => {
@@ -13,6 +16,15 @@ export const getPosts = () => {
   params.append("order", "desc");
   params.append("sort", "stars");
   params.append("q", `language:javascript created:>${created}`);
-  params.append("perPage", "10");
-  return axios(`https://api.github.com/search/repositories?${params}`);
+  params.append("per_page", "10");
+  return getData(`https://api.github.com/search/repositories?${params}`);
+};
+
+export const getReadme = ({ owner, repo }) => {
+  return getData({
+    url: `https://api.github.com/repos/${owner}/${repo}/readme`,
+    headers: {
+      accept: "application/vnd.github.v3.html+json",
+    },
+  });
 };

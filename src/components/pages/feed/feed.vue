@@ -3,26 +3,29 @@
 <script>
 import xHeader from "../../x-header/x-header";
 import Post from "@/components/post/post";
-import { getPosts } from "@/services/networkService";
+import Stories from "@/components/stories/stories";
+import { mapState } from "vuex";
 
 export default {
   name: "Feed",
   components: {
     xHeader,
     Post,
+    Stories,
   },
-  data() {
-    return {
-      posts: [],
-    };
+  methods: {
+    storyClick(ndx) {
+      this.$router.push({ name: "stories", params: { initialSlide: ndx } });
+    },
   },
-  async created() {
-    try {
-      const { data } = await getPosts();
-      this.posts = data.items;
-    } catch (e) {
-      throw new Error(e);
-    }
+  computed: {
+    ...mapState({
+      posts: (state) => state.repos,
+    }),
+  },
+  created() {
+    this.$store.dispatch("fetchRepos");
   },
 };
 </script>
+<style lang="scss" src="./feed.scss"></style>

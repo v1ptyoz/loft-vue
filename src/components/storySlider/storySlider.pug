@@ -1,0 +1,18 @@
+div.slider
+    .slider__header
+        a(@click.prevent="$router.push('/')")
+            icons(name="logo")
+        button(@click="$router.push('/')")
+            icons(name="close")
+    .slider__wrapper
+        ul.slider__content(ref="slider")
+            li(ref="item" v-for="(trending, ndx) in trendings" :key="trending.id")
+                storyslide(
+                    :slideNdx="ndx"
+                    :active="slideNdx === ndx"
+                    :data="getData(trending)"
+                    :loading="slideNdx === ndx && loading"
+                    :btns="activeBtns"
+                    @onNext="move(ndx + 1)"
+                    @onPrev="move(ndx - 1)"
+                    @onProgressEnd="move(ndx + 1)")
