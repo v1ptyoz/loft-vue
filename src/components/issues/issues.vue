@@ -13,7 +13,7 @@ export default {
     },
   },
   async created() {
-    // this.$store.dispatch("fetchIssues", this.url + "/issues");
+    this.$store.dispatch("fetchIssues", this.url + "/issues");
   },
 };
 </script>
