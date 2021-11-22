@@ -49,3 +49,8 @@ export const close = () => ({
     components: { icons },
     template: '<icons name="close" style="width: 50px"/>',
 });
+
+export const github = () => ({
+    components: { icons },
+    template: '<icons name="github" style="width: 50px"/>',
+});

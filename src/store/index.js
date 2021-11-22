@@ -1,52 +1,71 @@
 import { createStore } from "vuex";
-import { getIssues, getPosts, getReadme } from "@/services/networkService";
+import { getDataFromUrl, getTrendingsByWeek, getReadme, getUser, starRepo} from "@/services/networkService";
 
 export default createStore({
   state: {
-    repos: {},
+    starredRepos: {},
     issues: {},
     trendings: {},
+    user: {},
   },
   getters: {
     getIssue: (state) => (url) => {
       return state.issues[url];
     },
-    getRepoById: (state) => (id) => {
-      return state.repos.find((item) => item.id === id);
+    getTrendingsById: (state) => (id) => {
+      return state.trendings.find((item) => item.id === id);
     },
   },
   mutations: {
-    setData(state, payload) {
-      state.repos = payload;
+    setTrendings(state, payload) {
+      state.trendings = payload;
+      state.trendings.forEach((item) => {
+        item.starred = {
+          status: false,
+          loading: false,
+        };
+      });
     },
     setIssues(state, payload) {
       this.state.issues[payload.url] = payload.data;
     },
     setReadme(state, payload) {
-      state.repos = state.repos.map((repo) => {
+      state.trendings = state.trendings.map((repo) => {
         if (payload.id === repo.id) {
           repo.readme = payload.content;
         }
         return repo;
       });
     },
+    setUserData(state, payload) {
+      state.user = payload;
+    },
+    setUserRepos(state, payload) {
+      state.starredRepos = payload.data;
+    },
+    setStarred(state, payload) {
+      state.trendings = state.trendings.map((repo) => {
+        if (payload.id === repo.id) {
+          repo.starred = {
+            ...repo.starred,
+            ...payload.starred,
+          };
+        }
+      });
+    },
   },
   actions: {
-    async fetchRepos(state) {
+    async fetchTrendings(store) {
       try {
-        const { data } = await getPosts();
-        state.commit("setData", data.items);
-        // for (const item of data.items) {
-        //   const { data } = await getIssues(item.url + "/issues");
-        //   item.issuesList = data;
-        // }
+        const { data } = await getTrendingsByWeek();
+        store.commit("setTrendings", data.items);
       } catch (e) {
         throw new Error(e);
       }
     },
     async fetchIssues(store, url) {
       try {
-        const { data } = await getIssues(url);
+        const { data } = await getDataFromUrl(url);
         const issue = { url, data };
         store.commit("setIssues", issue);
       } catch (e) {
@@ -54,11 +73,44 @@ export default createStore({
       }
     },
     async fetchReadme(store, { id, owner, repo }) {
-      const currentRepo = store.getters.getRepoById(id);
+      const currentRepo = store.getters.getTrendingsById(id);
       if (currentRepo.readme !== undefined) return;
       try {
         const { data } = await getReadme({ owner, repo });
         store.commit("setReadme", { id, content: data });
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+    async fetchUser(store) {
+      try {
+        const { data } = await getUser();
+        store.commit("setUserData", data);
+        const repos = await getDataFromUrl(`https://api.github.com/users/${data.login}/starred`);
+        store.commit("setUserRepos", repos);
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+    async fetchUserRepos(store, url) {
+      try {
+        const { data } = await getDataFromUrl(url);
+        store.commit("setUserRepos", data);
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+    async doStarOnRepo(store, id) {
+      const repo = store.getters.getTrendingsById(id);
+      store.commit("setStarred", {
+        id: id,
+        starred: {
+          status: false,
+          loading: true,
+        },
+      });
+      try {
+        await starRepo(repo.owner.login, repo.name);
       } catch (e) {
         throw new Error(e);
       }

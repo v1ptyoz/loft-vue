@@ -4,7 +4,7 @@ div.post
         div.post__content
             h3.post__header {{postTitle}}
             p.post__text {{postContent}}
-            actions(:buttons="buttons")
+            actions(:stars="stars", :forks="forks")
     div.post__issues
         toggler(label="Hide issues" @onToggle="show")
         issues(v-if="shown" key="post" :url="url")

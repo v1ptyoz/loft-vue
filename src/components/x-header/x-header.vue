@@ -9,14 +9,6 @@ export default {
     xNav,
     icons,
   },
-  data() {
-    return {
-      currentUser: {
-        name: "user1",
-        src: "https://picsum.photos/100",
-      },
-    };
-  },
 };
 </script>
 

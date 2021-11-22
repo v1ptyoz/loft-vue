@@ -9,7 +9,7 @@
             div(v-if="data.content?.length" v-html="data.content")
             placeholder(v-else :paragraphs="4")
     .storyslide__footer
-        x-button(caption="Follow")
+        x-button(:loading="data.starred.loading" @click="onStarred") Follow
     template(v-if="active")
         button(v-if="btns.includes('next')" class="btn btn-next" @click="onNext")
             icons(name="next")

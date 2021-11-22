@@ -15,4 +15,6 @@ div.slider
                     :btns="activeBtns"
                     @onNext="move(ndx + 1)"
                     @onPrev="move(ndx - 1)"
-                    @onProgressEnd="move(ndx + 1)")
+                    @onProgressEnd="move(ndx + 1)"
+                    @onStarred="starringRepo"
+                    )

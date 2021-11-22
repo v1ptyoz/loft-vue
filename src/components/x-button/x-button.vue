@@ -3,15 +3,14 @@
 </template>
 
 <script>
+import spinner from "../../components/spinner/spinner";
 export default {
   name: "x-button",
-  props: ["caption", "width", "height"],
-  computed: {
-    setSize() {
-      return `width: ${this.width}px; height: ${this.height}px`;
-    },
+  components: {
+    spinner,
   },
-}
+  props: ["loading"],
+};
 </script>
 
 <style lang="scss" src="./x-button.scss" scoped>

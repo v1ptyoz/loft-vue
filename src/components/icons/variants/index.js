@@ -7,3 +7,4 @@ export { default as star } from "./star";
 export { default as prev } from "./prev";
 export { default as next } from "./next";
 export { default as close } from "./close";
+export { default as github } from "./github";

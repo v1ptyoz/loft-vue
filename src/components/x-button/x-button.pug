@@ -1,1 +1,5 @@
-button(:style="setSize") {{caption}}
+button
+    template(v-if="loading")
+        spinner
+    template(v-else)
+        slot

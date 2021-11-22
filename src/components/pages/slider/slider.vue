@@ -1,6 +1,6 @@
 <template>
   <storyslider
-    :initialSlide="parseInt('$route.params.initialSlide')"
+    :initialSlide="$route.params.initialSlide"
   ></storyslider>
 </template>
 

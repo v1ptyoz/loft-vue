@@ -10,11 +10,7 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "storySlider",
   components: { icons, storyslide },
-  props: {
-    initialSlide: {
-      type: Number,
-    },
-  },
+  props: ["initialSlide"],
   data() {
     return {
       slideNdx: 0,
@@ -25,7 +21,7 @@ export default {
   },
   computed: {
     ...mapState({
-      trendings: (state) => state.repos,
+      trendings: (state) => state.trendings,
     }),
     activeBtns() {
       if (this.showBtn === false) return [];
@@ -36,8 +32,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchTrendings: "fetchRepos",
+      fetchTrendings: "fetchTrendings",
       fetchReadme: "fetchReadme",
+      doStarOnRepo: "doStarOnRepo",
       async fetchReadmeForActiveSlide() {
         const { id, owner, name } = this.trendings[this.slideNdx];
         await this.fetchReadme({ id, owner: owner.login, repo: name });
@@ -49,14 +46,15 @@ export default {
         username: obj.owner.login,
         userAvatar: obj.owner.avatar_url,
         content: obj.readme,
-      }
+        starred: obj.starred,
+      };
     },
     moveSlide(to) {
       const { slider, item } = this.$refs;
-      const width = parseInt(getComputedStyle(item).getPropertyValue("width"), 10);
+      const width = getComputedStyle(item).getPropertyValue("width");
       this.slideNdx = to;
-      this.currentPosition = -(width * to);
-      slider.style.transform = `translateX(${this.currentPosition}px)`;
+      this.currentPosition = parseInt(width) * parseInt(to);
+      slider.style.transform = `translateX(-${this.currentPosition}px)`;
     },
     async move(to) {
       this.moveSlide(to);
@@ -74,10 +72,13 @@ export default {
         this.showBtn = true;
       }
     },
+    async starringRepo(id) {
+      await this.doStarOnRepo(id);
+    },
   },
   async mounted() {
     if (this.initialSlide) {
-      await this.move(this.initialSlide);
+      await this.move(parseInt(this.initialSlide));
     }
     await this.fetchTrendings();
     await this.fetchReadmeForActiveSlide();

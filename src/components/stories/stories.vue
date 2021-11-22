@@ -13,10 +13,9 @@ export default {
     };
   },
   emits: ["storyClick"],
-  props: ["id"],
   computed: {
     ...mapState({
-      trendings: (state) => state.repos,
+      trendings: (state) => state.trendings,
     }),
   },
   components: {

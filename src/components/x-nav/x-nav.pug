@@ -4,7 +4,7 @@ ul.nav__list(aria-label="Меню сайта")
             icons(name="home")
     li.nav__item
         button.nav__btn.nav__btn--user(aria-label="Профиль" title="Профиль")
-            user(:in-nav="true" :src="currentUser.src", :name="currentUser.name" )
+            user(:in-nav="true" :src="currentUser.avatar_url", :name="currentUser.login" )
     li.nav__item
-        button.nav__btn(aria-label="Выход" title="Выход")
+        button.nav__btn(aria-label="Выход" title="Выход" @click="logout")
             icons(name="exit")

@@ -1,4 +1,9 @@
-ul.issues
-    li.issue(v-for="issue in issues")
-        div.issue__author {{issue.user.login}}
-        div.issue {{issue.title}}
+template(v-if="typeof issues !== 'object'")
+    placeholder(:paragraphs="1")
+template(v-else)
+    p(v-if="issues.length === 0" ) There is no issues in repo
+    template(v-else)
+        ul.issues
+            li.issue(v-for="issue in issues")
+                div.issue__author {{issue.user.login}}
+                div.issue {{issue.title}}

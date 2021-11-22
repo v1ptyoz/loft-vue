@@ -20,11 +20,13 @@ export default {
   },
   computed: {
     ...mapState({
-      posts: (state) => state.repos,
+      repos: (state) => state.starredRepos,
+      user: (state) => state.user,
     }),
   },
-  created() {
-    this.$store.dispatch("fetchRepos");
+  async created() {
+    this.$store.dispatch("fetchTrendings");
+    this.$store.dispatch("fetchUser");
   },
 };
 </script>

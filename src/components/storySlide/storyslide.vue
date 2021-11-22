@@ -29,13 +29,16 @@ export default {
       },
     },
   },
-  emits: ["onNext", "onPrev", "onProgressEnd"],
+  emits: ["onNext", "onPrev", "onProgressEnd", "onStarred"],
   methods: {
     onNext() {
       this.$emit("onNext");
     },
     onPrev() {
       this.$emit("onPrev");
+    },
+    onStarred() {
+      this.$emit("onStarred", this.data.id);
     },
   },
 };

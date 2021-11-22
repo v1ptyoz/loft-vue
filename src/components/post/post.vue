@@ -26,20 +26,6 @@ export default {
     "stars",
   ],
   computed: {
-    buttons() {
-      return [
-        {
-          type: "star",
-          label: "Star",
-          value: this.stars,
-        },
-        {
-          type: "fork",
-          label: "Fork",
-          value: this.forks,
-        },
-      ];
-    },
     date() {
       const months = [
         "JAN",
