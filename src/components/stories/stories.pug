@@ -1,4 +1,6 @@
 ul.stories__list
     li.stories__item(v-for="(story, ndx) in trendings" key="story.id" :id="story.id")
         button(aria-label="Посмотреть историю" title="Посмотреть историю" @click="$emit('storyClick', ndx)")
-            user(:id="story.id" :name="story.name" :src="story.owner.avatar_url" :in-stories="true" :active="isActive")
+            .story__img
+                user(:id="story.id" :name="story.owner.login" :src="story.owner.avatar_url" :active="isActive")
+            .story__content {{ story.name }}

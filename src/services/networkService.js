@@ -45,6 +45,24 @@ export const getUser = () => {
   });
 };
 
+export const getUserRepos = () => {
+  return getData({
+    url: "https://api.github.com/user/repos",
+    headers: {
+      Authorization: `token ${localStorage.getItem("token")}`,
+    },
+  });
+};
+
+export const getFollowers = () => {
+  return getData({
+    url: "https://api.github.com/users/v1ptyoz/followers",
+    headers: {
+      Authorization: `token ${localStorage.getItem("token")}`,
+    },
+  });
+};
+
 export const getCode = () => {
   const params = new URLSearchParams();
   params.append("client_id", secret.clientId);

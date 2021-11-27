@@ -1,6 +1,11 @@
 .post {
     margin-top: 32px;
 }
+.post__header {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
 .post__content {
     padding: 24px 20px;
     border: 1px solid #F1F1F1;
@@ -9,12 +14,11 @@
     margin-top: 16px;
     margin-bottom: 18px;
 }
-.post__header {
+.post__title {
     font-weight: bold;
     font-size: 26px;
     line-height: 28px;
     color: #292929;
-    margin-bottom: 15px;
 }
 
 .post__text {
@@ -34,4 +38,9 @@
     color: rgba(0, 0, 0, 0.4);
     font-size: 12px;
     line-height: 14px;
+}
+
+.post__author {
+    width: 44px;
+    height: 44px;
 }

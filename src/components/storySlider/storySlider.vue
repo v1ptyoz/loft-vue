@@ -33,7 +33,7 @@ export default {
   methods: {
     ...mapActions({
       fetchTrendings: "fetchTrendings",
-      fetchReadme: "fetchReadme",
+      fetchReadme: "fetchReadmeForTrendings",
       doStarOnRepo: "doStarOnRepo",
       async fetchReadmeForActiveSlide() {
         const { id, owner, name } = this.trendings[this.slideNdx];

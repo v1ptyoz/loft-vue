@@ -3,11 +3,25 @@
     display: flex;
     gap: 30px;
     overflow-x: scroll;
+    .stories__item {
+    }
     button {
         cursor: pointer;
-        border: none;
         margin: 0;
-        padding: 0;
+        padding: 4px;
         background: transparent;
+        border: none;
+    }
+    .story__img {
+        width: 92px;
+        height: 92px;
+        border: 2px solid #A6328D;
+        border-radius: 50%;
+        padding: 4px;
+    }
+    .story__content {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 10px;
     }
 }

@@ -7,6 +7,7 @@ import user from "@/components/user/user";
 import actions from "@/components/actions/actions";
 import toggler from "@/components/toggler/toggler";
 import issues from "@/components/issues/issues";
+import { mapActions } from "vuex";
 export default {
   name: "Post",
   components: {
@@ -16,6 +17,7 @@ export default {
     issues,
   },
   props: [
+    "hasHeader",
     "username",
     "avatar",
     "postTitle",
@@ -24,6 +26,10 @@ export default {
     "postDate",
     "forks",
     "stars",
+    "id",
+    "owner",
+    "repo",
+    "postReadme",
   ],
   computed: {
     date() {
@@ -51,6 +57,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      doStarOnRepo: "doStarOnRepo",
+    }),
     show(toggled) {
       this.shown = toggled;
     },
@@ -58,6 +67,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./post.scss" scoped>
-
-</style>
+<style lang="scss" src="./post.scss" scoped></style>

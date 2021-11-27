@@ -1,11 +1,14 @@
 div.post
-    user(:name="username", :src="avatar")
     slot
+        .post__header
+            .post__author(v-show="hasHeader")
+                user(:name="username", :src="avatar")
+            h3.post__title {{postTitle}}
         div.post__content
-            h3.post__header {{postTitle}}
             p.post__text {{postContent}}
+            div.post__readme(v-show="hasContent") {{postReadme}}
             actions(:stars="stars", :forks="forks")
     div.post__issues
         toggler(label="Hide issues" @onToggle="show")
         issues(v-if="shown" key="post" :url="url")
-    span.post__date {{this.date}}
+    span.post__date(v-show="hasHeader") {{this.date}}

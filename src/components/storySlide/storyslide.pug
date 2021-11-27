@@ -2,7 +2,9 @@
     .storyslide__header
         timeline(:active="active" @onFinish="$emit('onProgressEnd')")
         .storyslide__user
-            user(:in-stories-post="true" :name="data.username" :src="data.userAvatar")
+            .storyslide__img
+                user(:src="data.userAvatar")
+            .storyslide__username {{ data.username }}
     .storyslide__content
         spinner(v-if="loading")
         template(v-else)

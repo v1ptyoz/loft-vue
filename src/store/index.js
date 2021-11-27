@@ -1,5 +1,12 @@
 import { createStore } from "vuex";
-import { getDataFromUrl, getTrendingsByWeek, getReadme, getUser, starRepo} from "@/services/networkService";
+import {
+  getDataFromUrl,
+  getTrendingsByWeek,
+  getReadme,
+  getUser,
+  starRepo,
+  getUserRepos, getFollowers
+} from "@/services/networkService";
 
 export default createStore({
   state: {
@@ -7,6 +14,7 @@ export default createStore({
     issues: {},
     trendings: {},
     user: {},
+    userRepos: {},
   },
   getters: {
     getIssue: (state) => (url) => {
@@ -14,6 +22,9 @@ export default createStore({
     },
     getTrendingsById: (state) => (id) => {
       return state.trendings.find((item) => item.id === id);
+    },
+    getUserRepoById: (state) => (id) => {
+      return state.userRepos.find((item) => item.id === id);
     },
   },
   mutations: {
@@ -29,7 +40,7 @@ export default createStore({
     setIssues(state, payload) {
       this.state.issues[payload.url] = payload.data;
     },
-    setReadme(state, payload) {
+    setReadmeInTrendings(state, payload) {
       state.trendings = state.trendings.map((repo) => {
         if (payload.id === repo.id) {
           repo.readme = payload.content;
@@ -41,6 +52,9 @@ export default createStore({
       state.user = payload;
     },
     setUserRepos(state, payload) {
+      state.userRepos = payload;
+    },
+    setUserStarredRepos(state, payload) {
       state.starredRepos = payload.data;
     },
     setStarred(state, payload) {
@@ -52,6 +66,9 @@ export default createStore({
           };
         }
       });
+    },
+    setUserFollowers(state, payload) {
+      state.user.followersList = payload;
     },
   },
   actions: {
@@ -72,12 +89,12 @@ export default createStore({
         throw new Error(e);
       }
     },
-    async fetchReadme(store, { id, owner, repo }) {
+    async fetchReadmeForTrendings(store, { id, owner, repo }) {
       const currentRepo = store.getters.getTrendingsById(id);
       if (currentRepo.readme !== undefined) return;
       try {
         const { data } = await getReadme({ owner, repo });
-        store.commit("setReadme", { id, content: data });
+        store.commit("setReadmeInTrendings", { id, content: data });
       } catch (e) {
         throw new Error(e);
       }
@@ -87,17 +104,25 @@ export default createStore({
         const { data } = await getUser();
         store.commit("setUserData", data);
         const repos = await getDataFromUrl(`https://api.github.com/users/${data.login}/starred`);
-        store.commit("setUserRepos", repos);
+        store.commit("setUserStarredRepos", repos);
       } catch (e) {
         throw new Error(e);
       }
     },
-    async fetchUserRepos(store, url) {
+    async fetchUserRepos(store) {
       try {
-        const { data } = await getDataFromUrl(url);
+        const { data } = await getUserRepos();
         store.commit("setUserRepos", data);
       } catch (e) {
         throw new Error(e);
+      }
+    },
+    async fetchFollowers(store) {
+      try {
+        const { data } = await getFollowers();
+        store.commit("setUserFollowers", data);
+      } catch (e) {
+        console.log(e);
       }
     },
     async doStarOnRepo(store, id) {

@@ -6,11 +6,8 @@ export default {
   props: [
     "name",
     "src",
-    "inStories",
     "active",
     "online",
-    "inNav",
-    "inStoriesPost",
   ],
 };
 </script>

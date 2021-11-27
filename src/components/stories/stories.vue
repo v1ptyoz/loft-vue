@@ -8,7 +8,6 @@ export default {
   name: "stories",
   data() {
     return {
-      inStories: true,
       isActive: true,
     };
   },

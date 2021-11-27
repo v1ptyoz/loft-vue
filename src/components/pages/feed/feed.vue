@@ -5,7 +5,6 @@ import xHeader from "../../x-header/x-header";
 import Post from "@/components/post/post";
 import Stories from "@/components/stories/stories";
 import { mapState } from "vuex";
-
 export default {
   name: "Feed",
   components: {

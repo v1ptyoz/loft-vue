@@ -17,6 +17,21 @@
   flex-direction: column;
   gap: 12px;
 }
+.storyslide__user {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.storyslide__img {
+  width: 32px;
+  height: 32px;
+}
+.storyslide__username {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #292929;
+}
 .storyslide__content {
   padding: 20px 18px;
   height: 500px;
