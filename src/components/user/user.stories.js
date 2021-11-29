@@ -7,30 +7,36 @@ export default {
 
 export const inPost = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=false />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=false />',
 });
 
 export const inStoriesNav = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true />',
 });
 
 export const inStoriesNavActive = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true :active=true />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true :active=true />',
 });
 
 export const inStoriesNavOnline = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true :active=true :online=true />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-stories=true :active=true :online=true />',
 });
 
 export const inNav = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-nav=true />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-nav=true />',
 });
 
 export const inStoriesPost = () => ({
   components: { user },
-  template: '<user name="Никнейм" src="https://picsum.photos/200" :in-stories-post=true />',
+  template:
+    '<user name="Никнейм" src="https://picsum.photos/200" :in-stories-post=true />',
 });

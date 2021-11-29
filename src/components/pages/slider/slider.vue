@@ -1,7 +1,5 @@
 <template>
-  <storyslider
-    :initialSlide="$route.params.initialSlide"
-  ></storyslider>
+  <storyslider :initialSlide="$route.params.initialSlide"></storyslider>
 </template>
 
 <script>

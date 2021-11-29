@@ -1,6 +1,4 @@
-<template src="./x-button.pug">
-
-</template>
+<template src="./x-button.pug"></template>
 
 <script>
 import spinner from "../../components/spinner/spinner";
@@ -13,6 +11,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./x-button.scss" scoped>
-
-</style>
+<style lang="scss" src="./x-button.scss" scoped></style>

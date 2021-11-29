@@ -5,7 +5,8 @@ import {
   getReadme,
   getUser,
   starRepo,
-  getUserRepos, getFollowers
+  getUserRepos,
+  getFollowers,
 } from "@/services/networkService";
 
 export default createStore({
@@ -103,7 +104,9 @@ export default createStore({
       try {
         const { data } = await getUser();
         store.commit("setUserData", data);
-        const repos = await getDataFromUrl(`https://api.github.com/users/${data.login}/starred`);
+        const repos = await getDataFromUrl(
+          `https://api.github.com/users/${data.login}/starred`
+        );
         store.commit("setUserStarredRepos", repos);
       } catch (e) {
         throw new Error(e);

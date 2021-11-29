@@ -1,11 +1,11 @@
 import toggler from "./toggler";
 
 export default {
-    title: "Toggler",
-    component: toggler,
+  title: "Toggler",
+  component: toggler,
 };
 
 export const hideOrShow = () => ({
-    components: { toggler },
-    template: '<toggler />',
+  components: { toggler },
+  template: "<toggler />",
 });

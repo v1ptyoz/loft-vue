@@ -1,6 +1,4 @@
-<template src="./storySlider.pug">
-
-</template>
+<template src="./storySlider.pug"></template>
 
 <script>
 import icons from "../icons/icons";

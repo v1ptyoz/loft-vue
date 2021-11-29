@@ -3,12 +3,7 @@
 <script>
 export default {
   name: "user",
-  props: [
-    "name",
-    "src",
-    "active",
-    "online",
-  ],
+  props: ["name", "src", "active", "online"],
 };
 </script>
 

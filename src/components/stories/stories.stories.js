@@ -1,13 +1,13 @@
 import stories from "./stories.vue";
 
 export default {
-    title: "Stories list",
-    component: stories,
+  title: "Stories list",
+  component: stories,
 };
 
 export const defaultView = () => ({
-    components: { stories },
-    template: `<stories :user-stories='[
+  components: { stories },
+  template: `<stories :user-stories='[
       {
         user: {
             name: "Username1",
@@ -41,8 +41,8 @@ export const defaultView = () => ({
 });
 
 export const activeView = () => ({
-    components: { stories },
-    template: `<stories :user-stories='[
+  components: { stories },
+  template: `<stories :user-stories='[
       {
         user: {
             name: "Username1",
@@ -76,8 +76,8 @@ export const activeView = () => ({
 });
 
 export const onlineView = () => ({
-    components: { stories },
-    template: `<stories :user-stories='[
+  components: { stories },
+  template: `<stories :user-stories='[
       {
         user: {
             name: "Username1",

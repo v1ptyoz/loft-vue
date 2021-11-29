@@ -1,11 +1,11 @@
 import spinner from "./spinner";
 
 export default {
-    title: "Spinner",
-    component: spinner,
+  title: "Spinner",
+  component: spinner,
 };
 
 export const defaultView = () => ({
-    components: { spinner },
-    template: '<spinner />',
+  components: { spinner },
+  template: "<spinner />",
 });

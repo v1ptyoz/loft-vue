@@ -1,6 +1,4 @@
-<template src="./post.pug">
-
-</template>
+<template src="./post.pug"></template>
 
 <script>
 import user from "@/components/user/user";

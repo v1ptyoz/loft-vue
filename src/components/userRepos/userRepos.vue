@@ -46,11 +46,10 @@ export default {
     font-size: 26px;
     line-height: 28px;
     color: #262626;
-
   }
   span {
     font-size: 18px;
-    color: #9E9E9E;
+    color: #9e9e9e;
   }
 }
 </style>

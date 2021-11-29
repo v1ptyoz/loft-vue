@@ -1,6 +1,4 @@
-<template src="./issues.pug">
-
-</template>
+<template lang="pug" src="./issues.pug"></template>
 
 <script>
 import placeholder from "../placeholder/placeholder";
@@ -19,10 +17,7 @@ export default {
     }
     await this.$store.dispatch("fetchIssues", this.url + "/issues");
   },
-
 };
 </script>
 
-<style src="./issues.scss" lang="scss" scoped>
-
-</style>
+<style src="./issues.scss" lang="scss" scoped></style>

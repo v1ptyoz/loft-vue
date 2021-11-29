@@ -5,7 +5,11 @@
   </div>
   <ul class="followers__list">
     <li v-for="item in followers" :key="item.id">
-      <follower :avatar="item.avatar_url" :username="item.login" :usertype="item.type"></follower>
+      <follower
+        :avatar="item.avatar_url"
+        :username="item.login"
+        :usertype="item.type"
+      ></follower>
     </li>
   </ul>
 </template>
@@ -22,7 +26,7 @@ export default {
     return {
       ...useFollowers(),
     };
-  }
+  },
 };
 </script>
 
@@ -39,7 +43,7 @@ export default {
   }
   span {
     font-size: 18px;
-    color: #9E9E9E;
+    color: #9e9e9e;
   }
 }
 .followers__list {

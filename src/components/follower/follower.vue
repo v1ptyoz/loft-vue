@@ -1,18 +1,18 @@
 <template>
-<div class="follower">
-  <div class="follower__user">
-    <div class="follower__img">
-      <user :src="avatar"></user>
+  <div class="follower">
+    <div class="follower__user">
+      <div class="follower__img">
+        <user :src="avatar"></user>
+      </div>
+      <div class="follower__info">
+        <p>{{ username }}</p>
+        <p>{{ usertype }}</p>
+      </div>
     </div>
-    <div class="follower__info">
-      <p>{{ username }}</p>
-      <p>{{ usertype }}</p>
+    <div class="follower__btn">
+      <x-button>following</x-button>
     </div>
   </div>
-  <div class="follower__btn">
-    <x-button>following</x-button>
-  </div>
-</div>
 </template>
 
 <script>
@@ -24,8 +24,8 @@ export default {
     user,
     xButton,
   },
-  props: ["avatar", "username", "usertype"]
-}
+  props: ["avatar", "username", "usertype"],
+};
 </script>
 
 <style lang="scss" scoped>
@@ -62,7 +62,7 @@ export default {
     font-weight: normal;
     font-size: 12px;
     line-height: 16px;
-    color: #9E9E9E;
+    color: #9e9e9e;
   }
 }
 </style>

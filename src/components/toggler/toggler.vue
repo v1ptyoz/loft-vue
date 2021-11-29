@@ -1,4 +1,4 @@
-<template src="./toggler.pug"></template>
+<template lang="pug" src="./toggler.pug"></template>
 
 <script>
 import icons from "../icons/icons";

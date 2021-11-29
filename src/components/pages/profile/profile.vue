@@ -12,7 +12,11 @@
             <div class="account__info">
               <div class="account__nickname">{{ user.login }}</div>
               <div class="account__stat">
-                <span>{{ user.collaborators }}</span> reposts <span>{{ user.followers }}</span> <a href="#" @click.prevent="$router.push({name: 'followers'})">watchers</a>
+                <span>{{ user.collaborators }}</span> reposts
+                <span>{{ user.followers }}</span>
+                <a href="#" @click.prevent="$router.push({ name: 'followers' })"
+                  >watchers</a
+                >
               </div>
               <div class="account__fullname">{{ user.name }}</div>
             </div>
